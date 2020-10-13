@@ -1,0 +1,24 @@
+﻿@page "/"
+@inject StateKontejner sk
+
+<p>@sk.ZadnjaIzmena</p>
+<p>@sk.Brojac</p>
+
+<EditForm Model="_primer">
+	<Blazored.FluentValidation.FluentValidationValidator/>
+	<Microsoft.AspNetCore.Components.Forms.ValidationSummary/>
+	<InputText @bind-Value="_primer.Ovo"/>
+	<InputText @bind-Value="_primer.SaOvim"/>
+	<button type="submit">Teeest</button>
+</EditForm>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code
+{
+	private BlazorComms.Shared.Primer _primer = new BlazorComms.Shared.Primer();
+
+	protected void onInitialized()
+	{
+		sk.Promena += StateHasChanged;
+	}
+}

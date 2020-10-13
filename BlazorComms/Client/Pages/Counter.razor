@@ -1,0 +1,22 @@
+﻿@page "/counter"
+@inject StateKontejner sk
+
+<h1>Counter</h1>
+<p>Zadnja izmena: @sk.ZadnjaIzmena</p>
+<p>Current count: @sk.Brojac</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+	protected void onInitializedAsync()
+	{
+		sk.Promena += StateHasChanged;
+	}
+
+	private void IncrementCount()
+	{
+		sk.Brojac++;
+		sk.ZadnjaIzmena = "Kaunter";
+	}
+}

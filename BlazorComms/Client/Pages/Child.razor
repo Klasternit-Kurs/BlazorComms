@@ -1,0 +1,20 @@
+﻿<h3>Child</h3>
+<p>@odRoditelja</p>
+<p>@proba</p>
+<button @onclick="@(() => klik.InvokeAsync("neki string"))">Test klik</button>
+<button @onclick="Promena">Test kaskada</button>
+
+@code 
+{
+	[CascadingParameter(Name = "test")]
+	protected string proba{ get; set;}
+
+	[Parameter]
+	public string odRoditelja { get; set; }
+
+	[Parameter]
+	public EventCallback<string> klik { get; set; }
+
+	void Promena() => proba = "asdasd";
+
+}

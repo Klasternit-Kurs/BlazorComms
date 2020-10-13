@@ -1,0 +1,28 @@
+﻿@page "/parent"
+<h3>Parent</h3>
+<p>@kas</p>
+<p>@bla</p>
+
+<CascadingValue Value="kas" Name="test">
+	<Child klik="Klik" odRoditelja="Nesto od parenta"/>
+</CascadingValue>
+
+
+
+@code {
+
+	public string Asd { get; set; } = "asd";
+
+	private string _zxc = "asd";
+	public string Zxc { get => _zxc; set => _zxc = value; }
+
+	public string bla;
+
+	public string kas = "Teeeest";
+
+	void Klik(string nesto)
+	{
+		bla = nesto;
+	}
+
+}
